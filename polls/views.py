@@ -15,7 +15,7 @@ def index(request):
 
 # Create your views here.
 def owner(request):
-    return HttpResponse("Hello, world. a6e8ad49 is the polls index.")
+    return HttpResponse("Hello, world. 06ef7307 is the polls index.")
 
 def detail(request, pk):
     question = get_object_or_404(Question, pk=pk)
