@@ -10,6 +10,16 @@
 
 <body>
   Hello, world. 06ef7307 is the polls index.
+  {% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
+  <a href="">Answer to the Ultimate Question</a>
   <div id="one">
     Turns out you have a really fun time if you
     go to work every day and focus on being
