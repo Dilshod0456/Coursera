@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'week2',
     'polls',
+    'hello',
 ]
 
 MIDDLEWARE = [
