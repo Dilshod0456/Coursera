@@ -9,5 +9,6 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),  # Keep
 
     # Sample applications
-    path('autos/', include('autos.urls')),
+    # path('autos/', include('autos.urls')),
+    path('cats/', include('cats.urls')),
 ]
