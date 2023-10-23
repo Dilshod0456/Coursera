@@ -28,6 +28,8 @@ INSTALLED_APPS = [
     'week2',
     'polls',
     'hello',
+    'crud', #modul3 3-week
+    'autos',
 ]
 
 MIDDLEWARE = [

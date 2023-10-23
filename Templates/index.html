@@ -1,48 +1,58 @@
-<!DOCTYPE html>
 <html>
-
 <head>
-  <title>Blocks</title>
-  <!-- Do not change this file - add your CSS styling 
-       rules to the blocks.css file included below -->
-  <link type="text/css" rel="stylesheet" href="blocks.css">
+    <title>{{ settings.APP_NAME }}</title>
+    <!-- edit samples/settings.py and add APP_NAME='DJ4E Samples' or similar
+        Also make sure that home/context_processors.py exists and is included
+        settings.py context processors as 'home.context_processors.settings' -->
+        <meta name="dj4e" content="9259e8d30306ac2ef4c5dd1936e67634"> 
 </head>
-
 <body>
-  Hello, world. 06ef7307 is the polls index.
-  {% if latest_question_list %}
+    <h1>Welcome to the DJ4E Samples</h1>
+    <p>
+    Here are some samples (Each will open in a new tab):
     <ul>
-    {% for question in latest_question_list %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
-    {% endfor %}
+        <li><a href="/autos">Autos CRUD</a>
     </ul>
+<p>
+{% if user.is_authenticated %}
+<p>Authenticated as
+<pre>
+Name: {{ user.get_full_name }}
+Email: {{ user.email }}
+Id: {{ user.id }}
+<!-- https://stackoverflow.com/questions/26879011/check-if-current-user-is-logged-in-using-any-django-social-auth-provider -->
+Type: {% if backends.associated %} GitHub {% else %} Local {% endif %}
+</pre>
+</p>
+<p>You can <a href="/accounts/logout">Logout</a></p>
 {% else %}
-    <p>No polls are available.</p>
+<p>You can <a href="/accounts/login">Login</a> if you like.</p>
 {% endif %}
-  <a href="">Answer to the Ultimate Question</a>
-  <div id="one">
-    Turns out you have a really fun time if you
-    go to work every day and focus on being
-    silly and funny and happy! - Hannah Murray
-  </div>
-  <div id="two">
-    All you need in this life is ignorance and confidence,
-    and then success is sure. - Mark Twain
-  </div>
-  <div id="three">
-    Well, if crime fighters fight crime and fire fighters
-    fight fire, what do freedom fighters fight? They never
-    mention that part to us, do they? - George Carlin
-  </div>
-  <div id="four">
-    Great minds discuss ideas; average minds discuss events;
-    small minds discuss people. - Eleanor Roosevelt
-  </div>
-  <p id="link">
-    <a href="https://www.dj4e.com/" target="_blank">
-      DJ4E
-    </a>
-  </p>
-</body>
+{% if islocal %}
+Some of the samples will require a user login to be created.
+</p>
+<p>
+You can play with this code at
+<a href="https://samples.dj4e.com" target="_blank">https://samples.dj4e.com</a>.
+{% else %}
+You
+might need an account and password to log in for certain features.  You might try this:
+<pre>
+Username: dj4e-samples
+Password: dj4e_nn_!
+</pre>
+There is a part of this password that you need to guess.  But if you have done your
+homework, it should only take you one guess (instead of 100 guesses).
+{% endif %}
+</p>
 
+    <p>
+        You can access the implementation of some of the later projects at
+        <a href="https://projects.dj4e.com/" target="_blank">https:/projects.dj4e.com/</a>.
+    </p>
+    <p>This sample code is available at
+    <a href="https://github.com/csev/dj4e-samples" target="_blank">
+    https://github.com/csev/dj4e-samples</a>
+    </p>
+</body>
 </html>
