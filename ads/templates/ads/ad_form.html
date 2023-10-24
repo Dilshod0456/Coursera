@@ -6,7 +6,7 @@
 <p>
   <form action="" method="post" id="upload_form" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form|crispy }}
+    {{ form }}
     <input type="submit" value="Submit">
     <input type="submit" value="Cancel" onclick="window.location.href='{% url 'ads:all' %}';return false;">
   </form>
