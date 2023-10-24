@@ -21,7 +21,7 @@ class Ad(models.Model) :
     content_type = models.CharField(max_length=256, null=True, help_text='The MIMEType of the file')
 
     # Favorites
-    favorites = models.ManyToManyField(settings.AUTH_USER_MODEL,
+    tags = models.ManyToManyField(settings.AUTH_USER_MODEL,
                                        through='Fav', related_name='favorite_ads')
 
     # Shows up in the admin list
