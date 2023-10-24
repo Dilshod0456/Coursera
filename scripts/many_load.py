@@ -1,17 +1,11 @@
-from unesco.models import Category, States, Region, Iso, Site
-
 import csv  # https://docs.python.org/3/library/csv.html
 
-# https://django-extensions.readthedocs.io/en/latest/runscript.html
-
-# python3 manage.py runscript many_load
-
-
+from unesco.models import Site, Category, States, Region, Iso
 
 def run():
-    fhand = open('unesco/whc-sites-2018-clean.csv')
+    fhand = open('unesco/load.csv')
     reader = csv.reader(fhand)
-    next(reader)  # Advance past the header
+    next(reader) # Advance past the header
 
     Category.objects.all().delete()
     States.objects.all().delete()
@@ -19,55 +13,38 @@ def run():
     Iso.objects.all().delete()
     Site.objects.all().delete()
 
-    # Format
-    # name	description	justification	year	longitude	latitude	area_hectares	category	states	region	iso
-
     for row in reader:
-        # print(row)
+        print(row)
 
-        category, created = Category.objects.get_or_create(name=row[7])
-        states, created = States.objects.get_or_create(name=row[8])
-        region, created = Region.objects.get_or_create(name=row[9])
-        iso, created = Iso.objects.get_or_create(name=row[10])
-
-        name = row[0]
-        description = row[1]
-        justification = row[2]
+        c , created = Category.objects.get_or_create(name=row[7])
+        s , created = States.objects.get_or_create(name=row[8])
+        r , created = Region.objects.get_or_create(name=row[9])
+        i , created = Iso.objects.get_or_create(name=row[10])
 
         try:
-            year = int(row[3])
+            y=int(row[3])
         except:
-            year = None
+            y=None
 
         try:
-            longitude = float(row[4])
+            z=float(row[4])
         except:
-            longitude = None
+            z=None
 
         try:
-            latitude = float(row[5])
+            x=float(row[5])
         except:
-            latitude = None
+            x=None
+
+        if row[6]=="":
+            w=None
+        else:
+            w=float(row[6])
 
         try:
-            area_hectares = float(row[6])
+            j=row[2]
         except:
-            area_hectares = None
+            j=None
 
-        site = Site.objects.create(
-            name = name,
-            description = description,
-            justification = justification,
-            year = year,
-            longitude = longitude,
-            latitude = latitude,
-            area_hectares = area_hectares,
-
-            category = category,
-            states = states,
-            region = region,
-            iso = iso,
-        )
+        site = Site(name=row[0], description=row[1], justification=j,  year=y, longitude=z, latitude=x, area_hectares= w, category=c, states=s, region=r, iso=i)
         site.save()
-
-    print("Finished")

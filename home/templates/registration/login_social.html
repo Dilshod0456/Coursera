@@ -1,4 +1,4 @@
-{% extends "base_menu.html" %}
+{% extends "base_bootstrap.html" %}
 
 {% block content %}
 
@@ -19,7 +19,7 @@
 
 <form method="post" action="{% url 'login' %}">
 {% csrf_token %}
-{{ form }}
+{{ form  }}
 <input type="submit" class="btn btn-primary" value="Login Locally" />
 <input type="hidden" name="next" value="{{ next }}" />
 </form>
