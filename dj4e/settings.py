@@ -25,7 +25,7 @@ SECRET_KEY = '=o(+)#v*z168p)e_(^%w_dhi^pu%vpro3&n)%#lrc=5$jjvg8!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['723160442c18.ngrok.io', '127.0.0.1']
+ALLOWED_HOSTS = ['8b7eaafceb20.ngrok.io', '127.0.0.1']
 
 
 # Application definition
@@ -38,10 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+
     'home',
     'ads',
     "social_django",
     'crispy_forms',
+
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -123,5 +126,3 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-CRISPY_TEMPLATE_PACK = 'uni_form'
-# CRISPY_TEMPLATE_PACK = 'bootstrap5' 
