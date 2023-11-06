@@ -18,7 +18,7 @@ class Ad(models.Model) :
     favorites = models.ManyToManyField(settings.AUTH_USER_MODEL, through='Fav', related_name='favorite_ads')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    tags = TaggableManager() #Added as per April 2023 autograder requirement
+    tags = TaggableManager(blank=True) #Added as per April 2023 autograder requirement
 
     # Shows up in the admin list
     def __str__(self):

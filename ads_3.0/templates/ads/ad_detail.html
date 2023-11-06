@@ -37,7 +37,7 @@
 </span>
 
 
-<h1>{{ ad.title }}</h1>
+<h1>Title: {{ ad.title }}</h1>
 {% if ad.content_type %}
 <img style="float:right; max-width:50%;" src="{% url 'ads:ad_picture' ad.id %}"
     onclick="document.getElementById('overlay').style.display = 'block';">

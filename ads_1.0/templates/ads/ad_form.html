@@ -2,6 +2,7 @@
 {% block title %}{{ settings.APP_NAME }}{% endblock %}
 {% load crispy_forms_tags %}
 {% block content %}
+{{ settings.APP_NAME }}
 <p>
   <form action="" method="post" >
     {% csrf_token %}

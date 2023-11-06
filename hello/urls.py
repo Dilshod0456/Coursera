@@ -4,5 +4,7 @@ from . import views
 app_name = 'hello'
 
 urlpatterns = [
-    path('', views.hello),
+    path('', views.sessfun),
+    path('cookie', views.cookie),
+    # path('hello/', views.sessfun),
 ]
